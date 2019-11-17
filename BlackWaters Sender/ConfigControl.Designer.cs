@@ -28,39 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUse = new System.Windows.Forms.Button();
+            this.btnTest = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPass = new FlatUI.FlatTextBox();
             this.txtUser = new FlatUI.FlatTextBox();
-            this.bunifuCheckbox2 = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.checkAuth = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.checkSSL = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtServer = new FlatUI.FlatTextBox();
             this.SuspendLayout();
             // 
-            // button2
+            // btnUse
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.button2.Location = new System.Drawing.Point(287, 299);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 23);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Use";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.btnUse.Location = new System.Drawing.Point(286, 323);
+            this.btnUse.Name = "btnUse";
+            this.btnUse.Size = new System.Drawing.Size(113, 23);
+            this.btnUse.TabIndex = 17;
+            this.btnUse.Text = "Use";
+            this.btnUse.UseVisualStyleBackColor = true;
+            this.btnUse.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnTest
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.button1.Location = new System.Drawing.Point(154, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.btnTest.Location = new System.Drawing.Point(153, 323);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(113, 23);
+            this.btnTest.TabIndex = 16;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // label4
             // 
@@ -68,7 +72,7 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label4.Location = new System.Drawing.Point(144, 240);
+            this.label4.Location = new System.Drawing.Point(143, 264);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 15;
@@ -80,7 +84,7 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label3.Location = new System.Drawing.Point(173, 200);
+            this.label3.Location = new System.Drawing.Point(172, 224);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 17);
             this.label3.TabIndex = 14;
@@ -90,7 +94,7 @@
             // 
             this.txtPass.BackColor = System.Drawing.Color.Transparent;
             this.txtPass.FocusOnHover = false;
-            this.txtPass.Location = new System.Drawing.Point(220, 233);
+            this.txtPass.Location = new System.Drawing.Point(219, 257);
             this.txtPass.MaxLength = 32767;
             this.txtPass.Multiline = false;
             this.txtPass.Name = "txtPass";
@@ -105,7 +109,7 @@
             // 
             this.txtUser.BackColor = System.Drawing.Color.Transparent;
             this.txtUser.FocusOnHover = false;
-            this.txtUser.Location = new System.Drawing.Point(220, 188);
+            this.txtUser.Location = new System.Drawing.Point(219, 212);
             this.txtUser.MaxLength = 32767;
             this.txtUser.Multiline = false;
             this.txtUser.Name = "txtUser";
@@ -115,30 +119,31 @@
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtUser.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtUser.UseSystemPasswordChar = false;
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
-            // bunifuCheckbox2
+            // checkAuth
             // 
-            this.bunifuCheckbox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.bunifuCheckbox2.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox2.Checked = true;
-            this.bunifuCheckbox2.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.bunifuCheckbox2.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox2.Location = new System.Drawing.Point(176, 133);
-            this.bunifuCheckbox2.Name = "bunifuCheckbox2";
-            this.bunifuCheckbox2.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox2.TabIndex = 10;
+            this.checkAuth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.checkAuth.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.checkAuth.Checked = true;
+            this.checkAuth.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.checkAuth.ForeColor = System.Drawing.Color.White;
+            this.checkAuth.Location = new System.Drawing.Point(176, 133);
+            this.checkAuth.Name = "checkAuth";
+            this.checkAuth.Size = new System.Drawing.Size(20, 20);
+            this.checkAuth.TabIndex = 10;
             // 
-            // bunifuCheckbox1
+            // checkSSL
             // 
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.Checked = true;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(176, 102);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 11;
+            this.checkSSL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.checkSSL.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.checkSSL.Checked = true;
+            this.checkSSL.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.checkSSL.ForeColor = System.Drawing.Color.White;
+            this.checkSSL.Location = new System.Drawing.Point(176, 102);
+            this.checkSSL.Name = "checkSSL";
+            this.checkSSL.Size = new System.Drawing.Size(20, 20);
+            this.checkSSL.TabIndex = 11;
             // 
             // label2
             // 
@@ -164,39 +169,71 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Use Secured Connection";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.Location = new System.Drawing.Point(167, 177);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Server";
+            // 
+            // txtServer
+            // 
+            this.txtServer.BackColor = System.Drawing.Color.Transparent;
+            this.txtServer.FocusOnHover = false;
+            this.txtServer.Location = new System.Drawing.Point(219, 166);
+            this.txtServer.MaxLength = 32767;
+            this.txtServer.Multiline = false;
+            this.txtServer.Name = "txtServer";
+            this.txtServer.ReadOnly = false;
+            this.txtServer.Size = new System.Drawing.Size(147, 29);
+            this.txtServer.TabIndex = 18;
+            this.txtServer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtServer.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtServer.UseSystemPasswordChar = false;
+            this.txtServer.TextChanged += new System.EventHandler(this.txtServer_TextChanged);
+            // 
             // ConfigControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtServer);
+            this.Controls.Add(this.btnUse);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
-            this.Controls.Add(this.bunifuCheckbox2);
-            this.Controls.Add(this.bunifuCheckbox1);
+            this.Controls.Add(this.checkAuth);
+            this.Controls.Add(this.checkSSL);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ConfigControl";
             this.Size = new System.Drawing.Size(563, 472);
+            this.Load += new System.EventHandler(this.ConfigControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private FlatUI.FlatTextBox txtPass;
-        private FlatUI.FlatTextBox txtUser;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox2;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        public FlatUI.FlatTextBox txtPass;
+        public FlatUI.FlatTextBox txtUser;
+        public System.Windows.Forms.Button btnTest;
+        public System.Windows.Forms.Button btnUse;
+        private System.Windows.Forms.Label label5;
+        public FlatUI.FlatTextBox txtServer;
+        public Bunifu.Framework.UI.BunifuCheckbox checkAuth;
+        public Bunifu.Framework.UI.BunifuCheckbox checkSSL;
     }
 }

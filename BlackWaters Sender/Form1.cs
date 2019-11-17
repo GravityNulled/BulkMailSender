@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrinitySeal;
 
 namespace BlackWaters_Sender
 {
     public partial class Form1 : Form
     {
-        private int panelWidth;
         private bool hide;
+        private readonly int panelWidth;
+
         public Form1()
         {
             InitializeComponent();
-            home1.BringToFront();
+            CheckForIllegalCrossThreadCalls = false;
+            firstPage1.BringToFront();
             panelWidth = slidingPanel.Width;
             hide = false;
         }
@@ -32,11 +28,11 @@ namespace BlackWaters_Sender
             if (hide)
             {
                 slidingPanel.Width = slidingPanel.Width + 10;
-                if (slidingPanel.Width >= panelWidth )
+                if (slidingPanel.Width >= panelWidth)
                 {
                     timer1.Stop();
                     hide = false;
-                    this.Refresh();
+                    Refresh();
                 }
             }
             else
@@ -46,7 +42,7 @@ namespace BlackWaters_Sender
                 {
                     timer1.Stop();
                     hide = true;
-                    this.Refresh();
+                    Refresh();
                 }
             }
         }
@@ -58,7 +54,7 @@ namespace BlackWaters_Sender
 
         private void btnMini_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
@@ -68,12 +64,66 @@ namespace BlackWaters_Sender
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            home1.BringToFront();
+            firstPage1.BringToFront();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void slidingPanel_Paint(object sender, PaintEventArgs e)
         {
-            email_List1.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (slidingPanel.Width == 50)
+            {
+                slidingPanel.Visible = true;
+                slidingPanel.Width = 200;
+                panelTransition.ShowSync(slidingPanel);
+            }
+            else
+            {
+                slidingPanel.Visible = false;
+                slidingPanel.Width = 50;
+                panelTransition.ShowSync(slidingPanel);
+            }
+        }
+
+        private void email_List3_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void btnSocials_Click(object sender, EventArgs e)
+        {
+            aboutForm1.BringToFront();
+        }
+
+        private void aboutForm1_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void btnMail_Click(object sender, EventArgs e)
+        {
+            mailing1.BringToFront();
+            mailing1.smtpServerBox = configControl1.txtServer.Text;
+            mailing1.userTextBox = configControl1.txtUser.Text;
+            mailing1.passTextBox = configControl1.txtPass.Text;
+            mailing1.checkSSLMail.Checked = configControl1.checkSSL.Checked;
+            mailing1.CheckAuth.Checked = configControl1.checkAuth.Checked;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            SealCheck.HashChecks();
+            if (!ProgramVariables.Freemode) Security.ChallengeCheck();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Help and Contact on About page", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
