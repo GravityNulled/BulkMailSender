@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Limilabs.Client.SMTP;
 
-namespace BlackWaters_Sender
+namespace BlackMailer
 {
     public partial class ConfigControl : UserControl
     {
@@ -20,7 +20,7 @@ namespace BlackWaters_Sender
         {
         }
 
-        public void testServer()
+        private void TestServer()
         {
             var TestSmtp = new Smtp();
             if (checkSSL.Checked)
@@ -28,14 +28,23 @@ namespace BlackWaters_Sender
             else
                 TestSmtp.Connect(txtServer.Text);
             if (txtUser.Text != string.Empty && txtPass.Text != string.Empty)
-                TestSmtp.UseBestLogin(txtUser.Text, txtPass.Text);
-            if (TestSmtp.Connected)
-                MessageBox.Show("Working Smtp Server", "Connected", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            {
+                try
+                {
+                    TestSmtp.UseBestLogin(txtUser.Text, txtPass.Text);
+                    if (TestSmtp.Connected)
+                        MessageBox.Show(@"Working Smtp Server", @"Connected", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                catch
+                {
+                    MessageBox.Show(@"Authentication Failed", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            testServer();
+            TestServer();
         }
 
         private void ConfigControl_Load(object sender, EventArgs e)

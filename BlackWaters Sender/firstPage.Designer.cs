@@ -1,6 +1,6 @@
-﻿namespace BlackWaters_Sender
+﻿namespace BlackMailer
 {
-    partial class firstPage
+    partial class FirstPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -44,7 +44,7 @@
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(301, 20);
             this.bunifuCustomLabel1.TabIndex = 0;
-            this.bunifuCustomLabel1.Text = "This Program was created on 11/10/2019";
+            this.bunifuCustomLabel1.Text = "This Program was created on 09/04/2020";
             // 
             // bunifuCustomLabel2
             // 
@@ -100,7 +100,7 @@
             this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Name = "firstPage";
+            this.Name = "FirstPage";
             this.Size = new System.Drawing.Size(563, 472);
             this.ResumeLayout(false);
             this.PerformLayout();

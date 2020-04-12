@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BlackWaters_Sender
+namespace BlackMailer
 {
     internal static class Program
     {
@@ -13,7 +13,7 @@ namespace BlackWaters_Sender
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Form());
+            Application.Run(new LoginForm());
         }
     }
 }

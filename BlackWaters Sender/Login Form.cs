@@ -2,14 +2,14 @@
 using System.Windows.Forms;
 using TrinitySeal;
 
-namespace BlackWaters_Sender
+namespace BlackMailer
 {
-    public partial class Login_Form : Form
+    public partial class LoginForm : Form
     {
-        public Login_Form()
+        public LoginForm()
         {
             InitializeComponent();
-
+            CheckForIllegalCrossThreadCalls = false;
             panel1.Visible = false;
         }
 
@@ -23,7 +23,7 @@ namespace BlackWaters_Sender
             SealCheck.HashChecks();
             if (SealCheck.isValidDLL)
             {
-                Seal.Secret = "PeB32KMjgTCLg4Mn0tGdf44CttXOA2FvWz7GDx4pOMdgV";
+                Seal.Secret = "9cXppSOhiiNuEUcFZpxvhwPTW0b25H1eDH3c4G226XHHN";
                 Seal.Initialize("1.0");
             }
         }

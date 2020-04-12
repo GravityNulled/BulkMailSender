@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Windows.Forms;
-using TrinitySeal;
 
-namespace BlackWaters_Sender
+namespace BlackMailer
 {
     public partial class Form1 : Form
     {
-        private bool hide;
-        private readonly int panelWidth;
+        private bool _hide;
+        private readonly int _panelWidth;
 
         public Form1()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             firstPage1.BringToFront();
-            panelWidth = slidingPanel.Width;
-            hide = false;
+            _panelWidth = slidingPanel.Width;
+            _hide = false;
         }
 
         private void btnPanel_Click(object sender, EventArgs e)
@@ -25,13 +24,13 @@ namespace BlackWaters_Sender
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (hide)
+            if (_hide)
             {
                 slidingPanel.Width = slidingPanel.Width + 10;
-                if (slidingPanel.Width >= panelWidth)
+                if (slidingPanel.Width >= _panelWidth)
                 {
                     timer1.Stop();
-                    hide = false;
+                    _hide = false;
                     Refresh();
                 }
             }
@@ -41,7 +40,7 @@ namespace BlackWaters_Sender
                 if (slidingPanel.Width <= 0)
                 {
                     timer1.Stop();
-                    hide = true;
+                    _hide = true;
                     Refresh();
                 }
             }
@@ -88,10 +87,6 @@ namespace BlackWaters_Sender
             }
         }
 
-        private void email_List3_Load(object sender, EventArgs e)
-        {
-        }
-
         private void btnSocials_Click(object sender, EventArgs e)
         {
             aboutForm1.BringToFront();
@@ -104,9 +99,9 @@ namespace BlackWaters_Sender
         private void btnMail_Click(object sender, EventArgs e)
         {
             mailing1.BringToFront();
-            mailing1.smtpServerBox = configControl1.txtServer.Text;
-            mailing1.userTextBox = configControl1.txtUser.Text;
-            mailing1.passTextBox = configControl1.txtPass.Text;
+            mailing1.SmtpServerBox = configControl1.txtServer.Text;
+            mailing1.UserTextBox = configControl1.txtUser.Text;
+            mailing1.PassTextBox = configControl1.txtPass.Text;
             mailing1.checkSSLMail.Checked = configControl1.checkSSL.Checked;
             mailing1.CheckAuth.Checked = configControl1.checkAuth.Checked;
         }
@@ -117,13 +112,12 @@ namespace BlackWaters_Sender
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SealCheck.HashChecks();
-            if (!ProgramVariables.Freemode) Security.ChallengeCheck();
+            
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Help and Contact on About page", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(@"Help and Contact on About page", @"Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace BlackWaters_Sender
+﻿namespace BlackMailer
 {
     partial class Mailing
     {
@@ -50,6 +50,8 @@
             this.FileLocationTxt = new System.Windows.Forms.TextBox();
             this.DownloadLinkText = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.tabSendMail = new System.Windows.Forms.TabPage();
+            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.numThreads = new FlatUI.FlatNumeric();
             this.CheckAuth = new Bunifu.Framework.UI.BunifuCheckbox();
             this.checkSSLMail = new Bunifu.Framework.UI.BunifuCheckbox();
             this.passBox = new System.Windows.Forms.TextBox();
@@ -64,8 +66,6 @@
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.numThreads = new FlatUI.FlatNumeric();
-            this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.tabMail.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabBody.SuspendLayout();
@@ -126,7 +126,7 @@
             this.bunifuCustomLabel5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(430, 20);
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(250, 23);
             this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
             this.bunifuCustomLabel5.Size = new System.Drawing.Size(56, 17);
             this.bunifuCustomLabel5.TabIndex = 29;
@@ -139,7 +139,7 @@
             this.bunifuCustomLabel4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(230, 20);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(415, 23);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(80, 17);
             this.bunifuCustomLabel4.TabIndex = 28;
@@ -377,6 +377,31 @@
             this.tabSendMail.Text = "Send Mail";
             this.tabSendMail.Click += new System.EventHandler(this.tabSendMail_Click);
             // 
+            // bunifuCustomLabel9
+            // 
+            this.bunifuCustomLabel9.AutoSize = true;
+            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel9.Location = new System.Drawing.Point(325, 121);
+            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
+            this.bunifuCustomLabel9.Size = new System.Drawing.Size(55, 17);
+            this.bunifuCustomLabel9.TabIndex = 41;
+            this.bunifuCustomLabel9.Text = "Threads";
+            // 
+            // numThreads
+            // 
+            this.numThreads.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.numThreads.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.numThreads.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.numThreads.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.numThreads.ForeColor = System.Drawing.Color.White;
+            this.numThreads.Location = new System.Drawing.Point(394, 115);
+            this.numThreads.Maximum = ((long)(100));
+            this.numThreads.Minimum = ((long)(1));
+            this.numThreads.Name = "numThreads";
+            this.numThreads.Size = new System.Drawing.Size(55, 30);
+            this.numThreads.TabIndex = 40;
+            this.numThreads.Value = ((long)(1));
+            // 
             // CheckAuth
             // 
             this.CheckAuth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
@@ -542,31 +567,6 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // numThreads
-            // 
-            this.numThreads.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.numThreads.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.numThreads.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.numThreads.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.numThreads.ForeColor = System.Drawing.Color.White;
-            this.numThreads.Location = new System.Drawing.Point(394, 115);
-            this.numThreads.Maximum = ((long)(100));
-            this.numThreads.Minimum = ((long)(1));
-            this.numThreads.Name = "numThreads";
-            this.numThreads.Size = new System.Drawing.Size(55, 30);
-            this.numThreads.TabIndex = 40;
-            this.numThreads.Value = ((long)(1));
-            // 
-            // bunifuCustomLabel9
-            // 
-            this.bunifuCustomLabel9.AutoSize = true;
-            this.bunifuCustomLabel9.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel9.Location = new System.Drawing.Point(325, 121);
-            this.bunifuCustomLabel9.Name = "bunifuCustomLabel9";
-            this.bunifuCustomLabel9.Size = new System.Drawing.Size(55, 17);
-            this.bunifuCustomLabel9.TabIndex = 41;
-            this.bunifuCustomLabel9.Text = "Threads";
             // 
             // Mailing
             // 

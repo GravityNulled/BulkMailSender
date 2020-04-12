@@ -1,4 +1,4 @@
-﻿namespace BlackWaters_Sender
+﻿namespace BlackMailer
 {
     partial class Form1
     {
@@ -49,10 +49,10 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuDragControl2 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panelTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.aboutForm1 = new BlackWaters_Sender.AboutForm();
-            this.mailing1 = new BlackWaters_Sender.Mailing();
-            this.firstPage1 = new BlackWaters_Sender.firstPage();
-            this.configControl1 = new BlackWaters_Sender.ConfigControl();
+            this.aboutForm1 = new AboutForm();
+            this.mailing1 = new Mailing();
+            this.firstPage1 = new FirstPage();
+            this.configControl1 = new ConfigControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.slidingPanel.SuspendLayout();
@@ -314,11 +314,11 @@
             this.panelTransition.SetDecoration(this.mailing1, BunifuAnimatorNS.DecorationType.None);
             this.mailing1.Location = new System.Drawing.Point(-3, 0);
             this.mailing1.Name = "mailing1";
-            this.mailing1.passTextBox = "";
+            this.mailing1.PassTextBox = "";
             this.mailing1.Size = new System.Drawing.Size(563, 448);
-            this.mailing1.smtpServerBox = "";
+            this.mailing1.SmtpServerBox = "";
             this.mailing1.TabIndex = 6;
-            this.mailing1.userTextBox = "";
+            this.mailing1.UserTextBox = "";
             // 
             // firstPage1
             // 
@@ -384,7 +384,7 @@
         private BunifuAnimatorNS.BunifuTransition panelTransition;
         private System.Windows.Forms.Button button2;
         
-        private firstPage firstPage1;
+        private FirstPage firstPage1;
         private Mailing mailing1;
         private AboutForm aboutForm1;
         private System.Windows.Forms.Button btnMail;

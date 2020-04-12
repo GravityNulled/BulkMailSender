@@ -1,10 +1,10 @@
 ﻿using System.Windows.Forms;
 
-namespace BlackWaters_Sender
+namespace BlackMailer
 {
-    public partial class firstPage : UserControl
+    public partial class FirstPage : UserControl
     {
-        public firstPage()
+        public FirstPage()
         {
             InitializeComponent();
         }

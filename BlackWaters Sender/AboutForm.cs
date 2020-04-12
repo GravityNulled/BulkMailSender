@@ -1,11 +1,13 @@
 ﻿using System.Windows.Forms;
 
-namespace BlackWaters_Sender
+namespace BlackMailer
 {
     public partial class AboutForm : UserControl
     {
         public AboutForm()
         {
+
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
         }
     }

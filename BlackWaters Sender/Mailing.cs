@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,11 @@ using Limilabs.Client.SMTP;
 using Limilabs.Mail;
 using Limilabs.Mail.Headers;
 
-namespace BlackWaters_Sender
+namespace BlackMailer
 {
     public partial class Mailing : UserControl
     {
-        private readonly List<string> emailList = new List<string>();
+        private readonly List<string> _emailList = new List<string>();
         public int Errors;
         public int Hits;
         public bool Stopped;
@@ -23,19 +24,19 @@ namespace BlackWaters_Sender
             CheckForIllegalCrossThreadCalls = false;
         }
 
-        public string smtpServerBox
+        public string SmtpServerBox
         {
             get => smtpServer.Text;
             set => smtpServer.Text = value;
         }
 
-        public string userTextBox
+        public string UserTextBox
         {
             get => userBox.Text;
             set => userBox.Text = value;
         }
 
-        public string passTextBox
+        public string PassTextBox
         {
             get => passBox.Text;
             set => passBox.Text = value;
@@ -53,13 +54,9 @@ namespace BlackWaters_Sender
         {
         }
 
-        private void flatCheckBox1_CheckedChanged(object sender)
-        {
-        }
-
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature Coming Soon withh v2!");
+            MessageBox.Show(@"Feature Coming Soon withh v2!");
         }
 
         private void bunifuCustomLabel2_Click(object sender, EventArgs e)
@@ -76,7 +73,7 @@ namespace BlackWaters_Sender
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Parallel.ForEach(emailList,
+            Parallel.ForEach(_emailList,
                 new ParallelOptions {MaxDegreeOfParallelism = Convert.ToInt16(numThreads.Value)}, account =>
                 {
                     var Builder = new MailBuilder();
@@ -98,7 +95,7 @@ namespace BlackWaters_Sender
                         Smtp.UseBestLogin(userBox.Text, passBox.Text);
                         var Resut = Smtp.SendMessage(Mail);
                         if (Resut.Status == SendMessageStatus.Success)
-                            MessageBox.Show("Ok");
+                            MessageBox.Show(@"Ok");
                         else
                             MessageBox.Show(Resut.Status.ToString());
                     }
@@ -107,22 +104,18 @@ namespace BlackWaters_Sender
 
         private void btnImportEmails_Click(object sender, EventArgs e)
         {
-            using (var ofd = new OpenFileDialog {FileName = "", Filter = "Text Files | *.txt", Multiselect = false})
+            using (var ofd = new OpenFileDialog {FileName = "", Filter = @"Text Files | *.txt", Multiselect = false})
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    foreach (var combolist in File.ReadAllLines(ofd.FileName)) emailList.Add(combolist);
+                    foreach (var combolist in File.ReadAllLines(ofd.FileName)) _emailList.Add(combolist);
 
-                    lblImported.Text = Convert.ToString(emailList.Count);
+                    lblImported.Text = Convert.ToString(_emailList.Count);
                 }
             }
         }
 
         private void tabSendMail_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void sendMail()
         {
         }
 
@@ -155,7 +148,7 @@ namespace BlackWaters_Sender
                 data.Contains("<<randLowerAlpha10>>"))
             {
                 var sb = new StringBuilder(BodyText.Text);
-                sb.Replace("<<date>>", dt.ToString());
+                sb.Replace("<<date>>", dt.ToString(CultureInfo.InvariantCulture));
                 sb.Replace("<<rand10>>", random10.ToString());
                 sb.Replace("<<randUpperNumL10>>", UpperFinalChars);
                 sb.Replace("<<randLowerNumL10>>", LowerFinalChars);
@@ -167,13 +160,13 @@ namespace BlackWaters_Sender
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            emailList.Clear();
-            lblImported.Text = Convert.ToString(emailList.Count);
+            _emailList.Clear();
+            lblImported.Text = Convert.ToString(_emailList.Count);
         }
 
         private void AttachBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming with Update 2.0!");
+            MessageBox.Show(@"Coming with Update 2.0!");
         }
     }
 }
